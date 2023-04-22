@@ -1,29 +1,39 @@
 package controller;
 
 import javax.swing.JOptionPane;
+import main.main;
 
 public class MenuVentasController {
 
-    public void ViajesController() {
-        ViajesController viaje = new ViajesController();
-        String[] opciones = {" Registrar Viaje ", " Consultar Viaje ", " Editar Viaje ", " Eliminar Viaje ", " Salir"};
-        int opcion = JOptionPane.showOptionDialog(null, "Seleccione la opción", "Viajes", 0, 1, null, opciones, opciones);
-        switch (opcion) {
-            case 0:
+    public static Metodos metodo = new Metodos();
+    public static ViajesController viaje = new ViajesController();
+    public static TiquetesController tiquete = new TiquetesController();
+    public static main menus = new main();
+
+    public void MenuViajes() {
+        String[] opcionesViajes = {"Registrar", "Consultar", "Editar", "Eliminar", "Volver"};
+
+        int opcionViajes = -1;
+        while (opcionViajes != opcionesViajes.length - 1) {
+            opcionViajes = metodo.menuBotones("Seleccione una opción", "Sub menú Viajes", opcionesViajes, "Volver");
+
+            if (opcionViajes == 0) {
                 viaje.registrarViaje();
-                break;
-            case 1:
+            } else if (opcionViajes == 1) {
                 viaje.consultarViaje();
-                break;
-            case 2:
+            } else if (opcionViajes == 2) {
                 viaje.editarViaje();
-                break;
-            case 3:
+            } else if (opcionViajes == 3) {
                 viaje.eliminarViaje();
-                break;
-            case 4:
-                JOptionPane.showMessageDialog(null, "Volver al menú principal");
-                break;
+            } else {
+                int respuesta = new Metodos().SIoNo("¿Estás seguro de que quieres volver al Menu de Viajes", "Salir");
+
+                if (respuesta == 0) {
+                    menus.SubMenuVentas();
+                } else {
+                    MenuViajes();
+                }
+            }
         }
     }
 }
