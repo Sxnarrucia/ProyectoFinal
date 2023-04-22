@@ -6,17 +6,19 @@ public class VehiculosBase {
     private String marca;
     private String estilo;
     private String modelo;
-    private int capacidad;    
+    private int capacidad;   
+    private int vendidos;
     
     public VehiculosBase(){
     }
 
-    public VehiculosBase(String numeroPlaca, String marca, String estilo, String modelo, int capacidad) {
+    public VehiculosBase(String numeroPlaca, String marca, String estilo, String modelo, int capacidad, int vendidos) {
         this.numeroPlaca = numeroPlaca;
         this.marca = marca;
         this.estilo = estilo;
         this.modelo = modelo;
         this.capacidad = capacidad;
+        this.vendidos = vendidos;
     }
 
     public String getNumeroPlaca() {
@@ -59,14 +61,25 @@ public class VehiculosBase {
         this.capacidad = capacidad;
     }
 
+    public int getVendidos() {
+        return vendidos;
+    }
+
+    public void setVendidos(int vendidos) {
+        this.vendidos = vendidos;
+    }
+
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append("Número de Placa = ").append(numeroPlaca);
-        sb.append("\nMarca = ").append(marca);
-        sb.append("\nEstilo = ").append(estilo);
-        sb.append("\nModelo = ").append(modelo);
-        sb.append("\nCapacidad = ").append(capacidad);
+        sb.append("VehiculosBase{");
+        sb.append("numeroPlaca=").append(numeroPlaca);
+        sb.append(", marca=").append(marca);
+        sb.append(", estilo=").append(estilo);
+        sb.append(", modelo=").append(modelo);
+        sb.append(", capacidad=").append(capacidad);
+        sb.append(", vendidos=").append(vendidos);
+        sb.append('}');
         return sb.toString();
     }
     

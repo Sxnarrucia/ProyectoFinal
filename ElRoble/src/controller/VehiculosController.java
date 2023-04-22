@@ -9,8 +9,8 @@ public class VehiculosController {
     public static ArrayList<VehiculosBase> listaVehiculos = new ArrayList();
 
     public void cargarDatos() {
-        VehiculosBase vehiculo1 = new VehiculosBase("ABC123", "Mercedes Benz", "Microbus", "2022", 15);
-        VehiculosBase vehiculo2 = new VehiculosBase("DEF867", "Mercedes Benz", "Autobus", "2023", 35);
+        VehiculosBase vehiculo1 = new VehiculosBase("ABC123", "Mercedes Benz", "Microbus", "2022", 15,0);
+        VehiculosBase vehiculo2 = new VehiculosBase("DEF867", "Mercedes Benz", "Autobus", "2023", 35,0);
         listaVehiculos.add(vehiculo1);
         listaVehiculos.add(vehiculo2);
     }
@@ -22,7 +22,7 @@ public class VehiculosController {
         String modelo = JOptionPane.showInputDialog("Ingrese el modelo del vehículo:");
         int capacidad = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la capacidad del vehículo:"));
 
-        VehiculosBase vehiculo = new VehiculosBase(numeroPlaca, marca, estilo, modelo, capacidad);
+        VehiculosBase vehiculo = new VehiculosBase(numeroPlaca, marca, estilo, modelo, capacidad,0);
         listaVehiculos.add(vehiculo);
 
         JOptionPane.showMessageDialog(null, "Vehículo registrado exitosamente.");

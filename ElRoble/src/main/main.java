@@ -102,7 +102,7 @@ public class main {
             if (opcion == 0) {
                 menuVentas.MenuViajes();
             } else if (opcion == 1) {
-                menuAdmin.MenuPersonas();
+                menuVentas.MenuTiquetes();
             } else {
                 int respuesta = new Metodos().SIoNo("¿Estás seguro de que quieres salir?", "Salir");
                 if (respuesta == 0) {

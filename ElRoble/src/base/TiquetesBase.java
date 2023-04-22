@@ -4,9 +4,9 @@ import java.util.Date;
 
 public class TiquetesBase {
 
-    private String idViaje;
-    private String cantidad;
-    private String precio;
+    private int idViaje;
+    private int cantidad;
+    private int precio;
     private Date fechaVenta;
     private int ventaBruta;
     private int IVA;
@@ -16,7 +16,7 @@ public class TiquetesBase {
     public TiquetesBase() {
     }
 
-    public TiquetesBase(String idViaje, String cantidad, String precio, Date fechaVenta, int ventaBruta, int IVA, int precioTotal) {
+    public TiquetesBase(int idViaje, int cantidad, int precio, Date fechaVenta, int ventaBruta, int IVA, int precioTotal) {
         this.idViaje = idViaje;
         this.cantidad = cantidad;
         this.precio = precio;
@@ -26,27 +26,27 @@ public class TiquetesBase {
         this.precioTotal = precioTotal;
     }
 
-    public String getIdViaje() {
+    public int getIdViaje() {
         return idViaje;
     }
 
-    public void setIdViaje(String idViaje) {
+    public void setIdViaje(int idViaje) {
         this.idViaje = idViaje;
     }
 
-    public String getCantidad() {
+    public int getCantidad() {
         return cantidad;
     }
 
-    public void setCantidad(String cantidad) {
+    public void setCantidad(int cantidad) {
         this.cantidad = cantidad;
     }
 
-    public String getPrecio() {
+    public int getPrecio() {
         return precio;
     }
 
-    public void setPrecio(String precio) {
+    public void setPrecio(int precio) {
         this.precio = precio;
     }
 
