@@ -2,8 +2,6 @@ package main;
 
 import controller.ChoferesController;
 import controller.MenuAdminController;
-import static controller.MenuAdminController.metodo;
-import static controller.MenuAdminController.vehiculo;
 import controller.MenuVentasController;
 import controller.Metodos;
 import controller.PersonasController;
@@ -21,6 +19,7 @@ public class main {
     public static ViajesController viaje = new ViajesController();
     public static Metodos metodo = new Metodos();
     public static MenuAdminController menuAdmin = new MenuAdminController();
+    public static MenuVentasController menuVentas = new MenuVentasController();
 
     public static void main(String[] args) {
         chofer.cargarDatos();
@@ -28,7 +27,13 @@ public class main {
         usuario.cargarDatos();
         vehiculo.cargarDatos();
         viaje.cargarDatos();
-        Menu();
+        String user = JOptionPane.showInputDialog(null, "Ingrese su nombre de usuario");
+        String password = JOptionPane.showInputDialog(null, "Ingrese su contrasenia");
+        if (user.equals("admin") && password.equals("admin")) {
+            Menu();
+        } else {
+            JOptionPane.showMessageDialog(null, "Su usuario o contrasenia son incorrectos");
+        }
 
     }
 
@@ -43,10 +48,9 @@ public class main {
             if (opcion == 0) {
                 SubMenuAdministracion();
             } else if (opcion == 1) {
-                menuAdmin.MenuPersonas();
+                SubMenuVentas();
             } else {
                 int respuesta = new Metodos().SIoNo("¿Estás seguro de que quieres salir?", "Salir");
-
                 if (respuesta == 0) {
                     metodo.msg("Gracias por usar el programa del Roble !");
                     System.exit(0);
@@ -81,6 +85,30 @@ public class main {
                     Menu();
                 } else {
                     SubMenuAdministracion();
+                }
+            }
+        }
+
+    }
+
+    public static void SubMenuVentas() {
+        String[] opciones = {"Viajes", "Tiquetes"};
+        String msg = "Bienvenido al Menu Principal de Ventas";
+        String titulo = "Menu Principal de Ventas";
+
+        int opcion = -1;
+        while (opcion != opciones.length - 1) {
+            opcion = metodo.menuBotones(msg, titulo, opciones, "Salir");
+            if (opcion == 0) {
+                menuVentas.MenuViajes();
+            } else if (opcion == 1) {
+                menuAdmin.MenuPersonas();
+            } else {
+                int respuesta = new Metodos().SIoNo("¿Estás seguro de que quieres salir?", "Salir");
+                if (respuesta == 0) {
+                    Menu();
+                } else {
+                    SubMenuVentas();
                 }
             }
         }
