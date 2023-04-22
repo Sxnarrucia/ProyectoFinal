@@ -11,7 +11,7 @@ public class MenuVentasController {
     public static main menus = new main();
 
     public void MenuViajes() {
-        String[] opcionesViajes = {"Registrar", "Consultar", "Editar", "Eliminar", "Volver"};
+        String[] opcionesViajes = {"Registrar Viaje", "Consultar Viaje", "Editar Viaje", "Eliminar Viaje", "Volver"};
 
         int opcionViajes = -1;
         while (opcionViajes != opcionesViajes.length - 1) {
@@ -32,6 +32,33 @@ public class MenuVentasController {
                     menus.SubMenuVentas();
                 } else {
                     MenuViajes();
+                }
+            }
+        }
+    }
+
+    public void MenuTiquetes() {
+        String[] opcionesTiquetes = { "Registrar Venta", "Anular Venta", "Consuitar Venta", "Informe General", "Volver"};
+
+        int opcionTiquetes = -1;
+        while (opcionTiquetes != opcionesTiquetes.length - 1) {
+            opcionTiquetes = metodo.menuBotones("Seleccione una opción", "Sub menú Viajes", opcionesTiquetes, "Volver");
+
+            if (opcionTiquetes == 0) {
+                tiquete.RegistrarVenta();
+            } else if (opcionTiquetes == 1) {
+                tiquete.AnularVenta();
+            } else if (opcionTiquetes == 2) {
+                tiquete.ConsultarVenta();
+            } else if (opcionTiquetes == 3) {
+                tiquete.InformeVenta();
+            } else {
+                int respuesta = new Metodos().SIoNo("¿Estás seguro de que quieres volver al Menu de Viajes", "Salir");
+
+                if (respuesta == 0) {
+                    menus.SubMenuVentas();
+                } else {
+                    MenuTiquetes();
                 }
             }
         }

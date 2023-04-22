@@ -97,4 +97,14 @@ public class ViajesController {
         }
         return null;
     }
+
+    public ViajesBase buscarViaje(String idChofer) {
+        for (ViajesBase viaje : listaViajes) {
+            if (viaje.getIdChofer().equals(idChofer)) {
+                return viaje;
+            }
+        }
+        return null;
+    }
+
 }
