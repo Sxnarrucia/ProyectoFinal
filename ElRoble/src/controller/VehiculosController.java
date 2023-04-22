@@ -9,8 +9,8 @@ public class VehiculosController {
     public static ArrayList<VehiculosBase> listaVehiculos = new ArrayList();
 
     public void cargarDatos() {
-        VehiculosBase vehiculo1 = new VehiculosBase("ABC123", "Mercedes Benz", "Microbus", "2022", 15,0);
-        VehiculosBase vehiculo2 = new VehiculosBase("DEF867", "Mercedes Benz", "Autobus", "2023", 35,0);
+        VehiculosBase vehiculo1 = new VehiculosBase("abc123", "Mercedes Benz", "Microbus", "2022", 15,0);
+        VehiculosBase vehiculo2 = new VehiculosBase("def867", "Mercedes Benz", "Autobus", "2023", 35,0);
         listaVehiculos.add(vehiculo1);
         listaVehiculos.add(vehiculo2);
     }

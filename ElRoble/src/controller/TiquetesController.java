@@ -33,6 +33,7 @@ public class TiquetesController {
             buscarVehiculo(placa).setVendidos(vendidos);
         } else {
             JOptionPane.showMessageDialog(null, "El numero de tiquetes ingresados supera la capacidad actual del vehiculo");
+            RegistrarVenta();
         }
     }
 
@@ -54,13 +55,11 @@ public class TiquetesController {
         String placa = JOptionPane.showInputDialog(null, "Ingrese la placa del vehiculo donde desea viajar ");
         int idViaje = viaje.buscarViaje(idChofer).getId();
         int cantidad = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingrese la cantidad de tiquetes que desea obtener"));
-        validarEspacios(cantidad, placa);
-        int precio = viaje.buscarViaje(idChofer).getPrecioDelTiquete();
+        double precio = viaje.buscarViaje(idChofer).getPrecioDelTiquete()*cantidad;
         Date fecha = new Date();
-        int ventaBruta = viaje.buscarViaje(idChofer).getPrecioDelTiquete();
-        double IVADouble = 0.13;
-        int IVA = (int) IVADouble;
-        int total = ventaBruta * IVA;
+        double IVA = 0.13;
+        double ventaBruta = precio * IVA;
+        double total = precio + ventaBruta;
         validarEspacios(cantidad, placa);
         TiquetesBase tiquete = new TiquetesBase(idViaje, cantidad, precio, fecha, ventaBruta, IVA, total);
         listaTiquetes.add(tiquete);
@@ -94,7 +93,7 @@ public class TiquetesController {
         for (VehiculosBase indexVenta : listaVehiculos) {
             int disponibles = indexVenta.getCapacidad() - indexVenta.getVendidos();
             data = data + (" Capacidad del autobus " + indexVenta.getCapacidad() + " Asientos Vendidos " + indexVenta.getVendidos() + " Disponibilidad de espacios " + disponibles + "\n");
-            JOptionPane.showMessageDialog(null, data, "Choferes", JOptionPane.NO_OPTION);
+            JOptionPane.showMessageDialog(null, data, "Informe", JOptionPane.NO_OPTION);
         }
     }
 

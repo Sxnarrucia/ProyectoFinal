@@ -17,8 +17,8 @@ public class ViajesController {
     public static ArrayList<ViajesBase> listaViajes = new ArrayList<>();
 
     public void cargarDatos() {
-        ViajesBase viaje1 = new ViajesBase("26/07/22", "San Jose", buscarVehiculo("ABC123").getCapacidad(), 2500, "ABC123", "123");
-        ViajesBase viaje2 = new ViajesBase("26/12/22", "Cartago", buscarVehiculo("ABC123").getCapacidad(), 5000, "DEF867", "123");
+        ViajesBase viaje1 = new ViajesBase("26/07/22", "San Jose", buscarVehiculo("abc123").getCapacidad(), 2500, "abc123", "123");
+        ViajesBase viaje2 = new ViajesBase("26/12/22", "Cartago", buscarVehiculo("def867").getCapacidad(), 5000, "def867", "1234");
         listaViajes.add(viaje1);
         listaViajes.add(viaje2);
     }
@@ -26,7 +26,7 @@ public class ViajesController {
     public void registrarViaje() {
         String fechaDelViaje = JOptionPane.showInputDialog("Ingrese la fecha del viaje (dd/MM/yyyy):");
         String destino = JOptionPane.showInputDialog("Ingrese el destino del viaje:");
-        int precioDelTiquete = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el precio del tiquete:"));
+        double precioDelTiquete = Double.parseDouble(JOptionPane.showInputDialog("Ingrese el precio del tiquete:"));
         String idChofer = JOptionPane.showInputDialog("Ingrese el ID del chofer que va a realizar el viaje:");
         String numeroPlaca = JOptionPane.showInputDialog("Ingrese el número de placa del bus que va a realizar el viaje:");
         int capacidadDePasajero = buscarVehiculo(numeroPlaca).getCapacidad();
@@ -54,7 +54,7 @@ public class ViajesController {
             if (viaje.getId() == id) {
                 String nuevaFecha = JOptionPane.showInputDialog("Ingrese la nueva fecha del viaje (dd/MM/yyyy):");
                 String nuevoDestino = JOptionPane.showInputDialog("Ingrese el nuevo destino del viaje:");
-                int nuevoPrecio = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el nuevo precio del tiquete:"));
+                double nuevoPrecio = Double.parseDouble(JOptionPane.showInputDialog("Ingrese el nuevo precio del tiquete:"));
 
                 viaje.setFechaDelViaje(nuevaFecha);
                 viaje.setDestino(nuevoDestino);

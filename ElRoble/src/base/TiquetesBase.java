@@ -6,17 +6,17 @@ public class TiquetesBase {
 
     private int idViaje;
     private int cantidad;
-    private int precio;
+    private double precio;
     private Date fechaVenta;
-    private int ventaBruta;
-    private int IVA;
-    private int precioTotal;
+    private double ventaBruta;
+    private double IVA;
+    private double precioTotal;
     
 
     public TiquetesBase() {
     }
 
-    public TiquetesBase(int idViaje, int cantidad, int precio, Date fechaVenta, int ventaBruta, int IVA, int precioTotal) {
+    public TiquetesBase(int idViaje, int cantidad, double precio, Date fechaVenta, double ventaBruta, double IVA, double precioTotal) {
         this.idViaje = idViaje;
         this.cantidad = cantidad;
         this.precio = precio;
@@ -42,11 +42,11 @@ public class TiquetesBase {
         this.cantidad = cantidad;
     }
 
-    public int getPrecio() {
+    public double getPrecio() {
         return precio;
     }
 
-    public void setPrecio(int precio) {
+    public void setPrecio(double precio) {
         this.precio = precio;
     }
 
@@ -58,27 +58,27 @@ public class TiquetesBase {
         this.fechaVenta = fechaVenta;
     }
 
-    public int getVentaBruta() {
+    public double getVentaBruta() {
         return ventaBruta;
     }
 
-    public void setVentaBruta(int ventaBruta) {
+    public void setVentaBruta(double ventaBruta) {
         this.ventaBruta = ventaBruta;
     }
 
-    public int getIVA() {
+    public double getIVA() {
         return IVA;
     }
 
-    public void setIVA(int IVA) {
+    public void setIVA(double IVA) {
         this.IVA = IVA;
     }
 
-    public int getPrecioTotal() {
+    public double getPrecioTotal() {
         return precioTotal;
     }
 
-    public void setPrecioTotal(int precioTotal) {
+    public void setPrecioTotal(double precioTotal) {
         this.precioTotal = precioTotal;
     }
 

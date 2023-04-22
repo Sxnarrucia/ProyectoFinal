@@ -6,7 +6,7 @@ public class ViajesBase {
     private String fechaDelViaje;
     private String destino;
     private int capacidadDePasajeros;
-    private int precioDelTiquete;
+    private double precioDelTiquete;
     private String numeroPlaca;
     private String idChofer;
 
@@ -19,7 +19,7 @@ public class ViajesBase {
     public ViajesBase() {
     }
 
-    public ViajesBase(String fechaDelViaje, String destino, int capacidadDePasajeros, int precioDelTiquete, String numeroPlaca, String idChofer) {
+    public ViajesBase(String fechaDelViaje, String destino, int capacidadDePasajeros, double precioDelTiquete, String numeroPlaca, String idChofer) {
         setNuevoID();
         this.id = nuevoId;
         this.fechaDelViaje = fechaDelViaje;
@@ -63,11 +63,11 @@ public class ViajesBase {
         this.capacidadDePasajeros = capacidadDePasajeros;
     }
 
-    public int getPrecioDelTiquete() {
+    public double getPrecioDelTiquete() {
         return precioDelTiquete;
     }
 
-    public void setPrecioDelTiquete(int precioDelTiquete) {
+    public void setPrecioDelTiquete(double precioDelTiquete) {
         this.precioDelTiquete = precioDelTiquete;
     }
 
